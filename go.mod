@@ -1,4 +1,4 @@
-module github.com/jh125486/CSCE4600
+module github.com/Dannyboy057/ShweetShell
 
 go 1.22
 
