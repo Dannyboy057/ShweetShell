@@ -8,12 +8,14 @@ import (
 func ShowHelp() error {
 	helpMessage := `
 	   Available commands:
-- cd <directory>: Change directory.
-- env: Print environment variables.
-- exit: Exit the shell.
-- pwd: Print the current working directory.
-- clear: Clear the console screen.
-- help: Display this help message.
+	   - cd [directory]: Change the current directory.
+	   - env: Display environment variables.
+	   - exit: Exit the shell.
+	   - ls [options: List files and/or directories in the current directory.
+	   - clear: Clear the console.
+	   - pwd: Display the current working directory.
+	   - mkdir [directory]: Create a new directory.
+	   - help: Display this help message.
 `
 	fmt.Println(helpMessage)
 	return nil
