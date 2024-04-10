@@ -85,6 +85,8 @@ func handleInput(w io.Writer, input string, exit chan<- struct{}) error {
 		return builtins.PrintWorkingDirectory()
 	case "clear":
 		return builtins.ClearConsole()
+	case "ls":
+		return builtins.ListDirectoryContents(args...)
 	case "help":
 		return builtins.ShowHelp()
 	}
