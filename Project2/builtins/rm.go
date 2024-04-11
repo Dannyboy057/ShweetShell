@@ -15,7 +15,8 @@ func Remove(names ...string) error {
 		_, err := os.Stat(path)
 		if err != nil {
 			if os.IsNotExist(err) {
-				// File or directory does not exist, continue to the next one
+				//does not exist,
+				fmt.Printf("%s does not exist\n", name)
 				continue
 			}
 			// Other error occurred
