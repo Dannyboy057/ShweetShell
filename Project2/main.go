@@ -89,6 +89,8 @@ func handleInput(w io.Writer, input string, exit chan<- struct{}) error {
 		return builtins.ListDirectoryContents(args...)
 	case "mkdir":
 		return builtins.MakeDirectory(args...)
+	case "rm": //rm -file
+		return builtins.Remove(args...)
 	case "help":
 		return builtins.ShowHelp()
 	}

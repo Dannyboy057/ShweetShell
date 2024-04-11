@@ -15,6 +15,7 @@ func ShowHelp() error {
 	   - clear: Clear the console.
 	   - pwd: Display the current working directory.
 	   - mkdir [directory]: Create a new directory.
+	   - rm: takes file's or directory's name as argument and removes it.
 	   - help: Display this help message.
 `
 	fmt.Println(helpMessage)

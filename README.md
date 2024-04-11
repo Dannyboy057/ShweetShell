@@ -11,7 +11,7 @@ Clone the repository:
 
 git clone https://github.com/Dannyboy/ShweetShell.git
 Accces the Shweet Shell directory:
-Build the project: 'go build'
+Build the project command: 'go build'
 Usage
 After building the project, you can run the shell by executing the command:
 'go run main.go'
@@ -26,9 +26,10 @@ ls: List files and directories. [optional argument 'f' or 'd' for only showing f
 mkdir: Create a new directory. [argument: name of directory] ex:'mkdir test'
 pwd: prints current working directory
 clear: clars the console
+rm: takes file or deirctory name as parameter
 help: Display list of available commands.
 Testing
 To run the tests for this project, execute the following command:
-'go test;
+'go test'
 
 This will run all the test cases defined in the project.
