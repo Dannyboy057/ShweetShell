@@ -30,6 +30,6 @@ rm: takes file or deirctory name as parameter
 help: Display list of available commands.
 Testing
 To run the tests for this project, execute the following command:
-'go test'
+'go test -v'
 
 This will run all the test cases defined in the project.
