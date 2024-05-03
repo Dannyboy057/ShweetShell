@@ -10,7 +10,7 @@ To install ShweetShell, follow these steps:
 Clone the repository:
 
 git clone https://github.com/Dannyboy/ShweetShell.git
-Accces the Shweet Shell directory:
+Accces the Shweet Shell directory: 'Project 2'
 Build the project command: 'go build'
 Usage
 After building the project, you can run the shell by executing the command:
