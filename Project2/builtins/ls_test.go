@@ -18,9 +18,15 @@ func TestListDirectoryContents(t *testing.T) {
 	for _, name := range files {
 		path := tmpDir + "/" + name
 		if name[:3] == "dir" {
-			os.Mkdir(path, 0755)
+			err := os.Mkdir(path, 0755)
+			if err != nil {
+				t.Fatalf("Error creating directory: %v", err)
+			}
 		} else {
-			f, _ := os.Create(path)
+			f, err := os.Create(path)
+			if err != nil {
+				t.Fatalf("Error creating file: %v", err)
+			}
 			f.Close()
 		}
 	}

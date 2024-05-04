@@ -2,7 +2,6 @@ package builtins
 
 import (
 	"fmt"
-	"io/ioutil"
 	"os"
 	"strconv"
 )
@@ -21,7 +20,7 @@ func ListDirectoryContents(args ...string) error {
 	}
 
 	// Read the directory contents
-	files, err := ioutil.ReadDir(dir)
+	files, err := os.ReadDir(dir)
 	if err != nil {
 		return err
 	}
@@ -67,11 +66,16 @@ func ListDirectoryContents(args ...string) error {
 }
 
 // formatFileInfo formats file information including mode, last write time, and length.
-func formatFileInfo(file os.FileInfo) (string, error) {
-	mode := file.Mode().String()
-	modTime := file.ModTime().Format("Jan _2 15:04")
-	size := strconv.FormatInt(file.Size(), 10)
-	name := file.Name()
+func formatFileInfo(file os.DirEntry) (string, error) {
+	info, err := file.Info()
+	if err != nil {
+		return "", err
+	}
+
+	mode := info.Mode().String()
+	modTime := info.ModTime().Format("Jan _2 15:04")
+	size := strconv.FormatInt(info.Size(), 10)
+	name := info.Name()
 
 	return fmt.Sprintf("%s %s %12s %20s", mode, modTime, size, name), nil
 }
