@@ -57,19 +57,21 @@ func TestChangeDirectory(t *testing.T) {
 			}
 
 			// testing
-			if err := builtins.ChangeDirectory(tt.args.args...); tt.wantErr != nil {
+			err := builtins.ChangeDirectory(tt.args.args...)
+			if tt.wantErr != nil {
 				if !errors.Is(err, tt.wantErr) {
-					t.Fatalf("ChangeDirectory() error = %v, wantErr %v", err, tt.wantErr)
+					t.Errorf("ChangeDirectory() error = %v, wantErr %v", err, tt.wantErr)
 				}
 				return
 			} else if err != nil {
-				t.Fatalf("ChangeDirectory() unexpected error: %v", err)
+				t.Errorf("ChangeDirectory() unexpected error: %v", err)
+				return
 			}
 
 			// "happy" path
 			wd, err := os.Getwd()
 			if err != nil {
-				t.Fatalf("Could not get working dir")
+				t.Fatalf("Could not get working dir: %v", err)
 			}
 			d1, err := os.Stat(wd)
 			if err != nil {
